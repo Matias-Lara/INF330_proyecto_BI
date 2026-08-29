@@ -1,0 +1,17 @@
+Modelo Dimensional.
+
+De acuerdo al caso planteado deben definir indicadores de desempeño (KPI) para la mejora del proceso de toma de decisiones de la organización. Una vez definidos los KPI, se deben analizar los datos entregados en la base de datos relacional del caso, con la finalidad de determinar su utilidad y calidad, para el posterior diseño del modelo dimensional.
+
+Ud. y su equipo deben diseñar un modelo dimensional del tipo estrella o copo de nieve, utilizando el modelo de Kimball para identificar los componentes del modelo dimensional donde deben aplicar y documentar los 4 pasos que se mencionan a continuación:
+
+1.  Elegir el proceso de negocio.
+
+2.  Establecer el nivel de granularidad.
+
+3.  Elegir las dimensiones.
+
+4.  Identificar medidas o métricas y la tabla hecho.
+
+5.  Una vez identificados todos los componentes del modelo, se debe construir el modelo dimensional utilizando el gestor de base de datos MS SQL Server.
+
+NOTA : Se adjunta plantilla de informe a ser utilizada por todos los grupos
