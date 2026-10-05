@@ -1,0 +1,24 @@
+▪  Informe Proceso ETL (Extract, Transform and Load).
+
+Una vez creado el modelo dimensional es necesario extraer, transformar y cargar los datos desde la base de datos relacional entregada al modelo dimensional construido, a través de un proceso ETL creado en la herramienta de integración de datos Visual Studio 2019 y el componente SSIS - SQL Server Integration Services. Este proceso debe quedar documentado en el informe cuya plantilla es INF330_Plantilla Informe 2 BI.docx.
+
+▪  Presentación Proceso ETL (Extract, Transform and Load).
+
+Cada grupo dispondrá de un bloque de 15 minutos, distribuido de la siguiente manera:
+
+10 minutos máximo para la presentación y demo en vivo de la ETL.
+5 minutos para preguntas y retroalimentación.
+La distribución de días y horarios será la siguiente:
+
+Día	Grupo	Horario
+Lunes 5 de octubre de 2026	Grupo 1	11:05 – 11:20
+Lunes 5 de octubre de 2026	Grupo 2	11:20 – 11:35
+Lunes 5 de octubre de 2026	Grupo 3	11:35 – 11:50
+Lunes 5 de octubre de 2026	Grupo 4	11:50 – 12:05
+Miércoles 7 de octubre de 2026	Grupo 5	11:05 – 11:20
+Miércoles 7 de octubre de 2026	Grupo 7	11:20 – 11:35
+Miércoles 7 de octubre de 2026	Grupo 9	11:35 – 11:50
+
+	
+01 INF330_Plantilla Informe 2 BI.docx 01 INF330_Plantilla Informe 2 BI.docx 26 de septiembre de 2026, 22:18
+02 Rubrica_Avance2_Proceso_ETL.xlsx 02 Rubrica_Avance2_Proceso_ETL.xlsx 27 de septiembre de 2026, 00:17
