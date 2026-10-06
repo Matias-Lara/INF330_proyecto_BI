@@ -1,0 +1,19 @@
+# Visual Studio / SSIS (se regeneran al abrir o compilar los proyectos)
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.dtproj.user
+
+# Ejemplos pesados del profesor (se descargan del aula virtual; no son necesarios para correr la ETL)
+ejemplos_profesor/VENTAS_DW.bak
+ejemplos_profesor/VENTAS_OLTP
+ejemplos_profesor/VENTAS_STAGE.bak
+
+# Temporales y configuración local
+*.tmp
+~$*
+Thumbs.db
+desktop.ini
+.claude/settings.local.json
