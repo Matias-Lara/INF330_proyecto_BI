@@ -30,10 +30,23 @@ function Restore-Bak([string]$dbName, [string]$bak, [bool]$forzar = $false) {
     # El servicio de SQL Server debe poder leer el .bak; si la carpeta del repo no se lo permite, se usa una copia en su carpeta Backup
     [void](sqlcmd -S $Servidor -E -C -W -b -h -1 -Q "SET NOCOUNT ON; RESTORE HEADERONLY FROM DISK='$bak'" 2>&1)
     if ($LASTEXITCODE -ne 0) {
-        $dirBk = Invoke-Sql "SET NOCOUNT ON; SELECT CAST(SERVERPROPERTY('InstanceDefaultBackupPath') AS nvarchar(260))"
-        try { Copy-Item $bak $dirBk -Force -ErrorAction Stop }
-        catch { throw "SQL Server no puede leer '$bak' y no se pudo copiar a '$dirBk'. Ejecute PowerShell como administrador o copie el .bak a una carpeta que el servicio pueda leer." }
-        $bak = Join-Path $dirBk (Split-Path $bak -Leaf)
+        $nombre = Split-Path $bak -Leaf
+        $dirBk  = Invoke-Sql "SET NOCOUNT ON; SELECT CAST(SERVERPROPERTY('InstanceDefaultBackupPath') AS nvarchar(260))"
+        $nuevo  = $null
+        # 1) carpeta Backup de la instancia (requiere PowerShell como administrador)
+        try { Copy-Item $bak $dirBk -Force -ErrorAction Stop; $nuevo = Join-Path $dirBk $nombre } catch { }
+        # 2) sin administrador: carpeta temporal propia con permiso de lectura para la cuenta del servicio de SQL Server
+        if (-not $nuevo) {
+            $cuenta = Invoke-Sql "SET NOCOUNT ON; SELECT TOP 1 service_account FROM sys.dm_server_services WHERE servicename LIKE 'SQL Server (%'"
+            if (-not $cuenta -or $cuenta -match '\s') { $cuenta = 'NT SERVICE\MSSQLSERVER' }
+            $tmp = Join-Path $env:TEMP 'KentFoods_bak'
+            New-Item -ItemType Directory -Force -Path $tmp | Out-Null
+            Copy-Item $bak $tmp -Force
+            [void](icacls $tmp /grant "${cuenta}:(OI)(CI)R")
+            $nuevo = Join-Path $tmp $nombre
+            $dirBk = $tmp
+        }
+        $bak = $nuevo
         Write-Host "[..] el servicio de SQL Server no puede leer la carpeta del repo; se usa una copia en $dirBk"
     }
     Write-Host "[..] restaurando $dbName desde $bak"
