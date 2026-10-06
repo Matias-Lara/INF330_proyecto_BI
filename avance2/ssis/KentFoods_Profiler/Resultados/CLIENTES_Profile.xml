@@ -1,0 +1,3625 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{8D38BFA7-057B-4B55-8173-80D27CD72669}" Name="CLIENTES_Profile.xml">
+      <DtsConnectionManagerID>CLIENTES_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{F971494D-AC26-490C-B897-E1BF88AA15C3}" Name="KentFoods">
+      <DtsConnectionManagerID>KentFoods</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="-1" />
+        <Column Name="ClienteID" SqlDbType="NChar" MaxLength="5" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="-1" />
+        <Column Name="Empresa" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="-1" />
+        <KeyColumns>
+          <Column Name="ClienteID" SqlDbType="NChar" MaxLength="5" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="CodigoPostal" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>1</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="ClienteID" SqlDbType="NChar" MaxLength="5" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>5</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>91</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Empresa" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>36</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>23</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>11</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>15</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>30</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>11</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>12</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>11</MinLength>
+        <MaxLength>46</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>42</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>46</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>15</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>20</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="CodigoPostal" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>9</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>16</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>50</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>2</MinLength>
+        <MaxLength>11</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>13</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>32</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>20</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>17</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>25</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>15</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>27</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="ClienteID" SqlDbType="NChar" MaxLength="5" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>91</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>ALFKI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ANATR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ANTON</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>AROUT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BERGS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BLAUS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BLONP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BOLID</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BONAP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BOTTM</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BSBEV</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CACTU</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CENTC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CHOPS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>COMMI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CONSH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DRACD</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DUMON</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>EASTC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ERNSH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FAMIA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FISSA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FOLIG</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FOLKO</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FRANK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FRANR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FRANS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FURIB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GALED</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GODOS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GOURL</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GREAL</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GROSR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>HANAR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>HILAA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>HUNGC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>HUNGO</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ISLAT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>KOENE</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LACOR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LAMAI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LAUGB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LAZYK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LEHMS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LETSS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LILAS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LINOD</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LONEP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>MAGAA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>MAISD</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>MEREP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>MORGK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>NORTS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OCEAN</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OLDWO</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OTTIK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PARIS</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PERIC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PICCO</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PRINI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>QUEDE</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>QUEEN</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>QUICK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RANCH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RATTC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>REGGC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RICAR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RICSU</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ROMEY</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SANTG</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SAVEA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SEVES</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SIMOB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SPECD</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SPLIR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SUPRD</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>THEBI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>THECR</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>TOMSP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>TORTU</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>TRADH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>TRAIH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>VAFFE</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>VICTE</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>VINET</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WANDK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WARTH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WELLI</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WHITC</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WILMK</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WOLZA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <KeyColumns>
+          <Column Name="Empresa" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Empresa" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>91</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Alfreds Futterkiste</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ana Trujillo Emparedados y helados</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Antonio Moreno Taquería</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Around the Horn</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berglunds snabbköp</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Blauer See Delikatessen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Blondesddsl père et fils</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bólido Comidas preparadas</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bon app'</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bottom-Dollar Markets</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>B's Beverages</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cactus Comidas para llevar</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Centro comercial Moctezuma</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chop-suey Chinese</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comércio Mineiro</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Consolidated Holdings</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Die Wandernde Kuh</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drachenblut Delikatessen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Du monde entier</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Eastern Connection</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ernst Handel</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Familia Arquibaldo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FISSA Fabrica Inter. Salchichas S.A.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Folies gourmandes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Folk och fä HB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>France restauration</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Franchi S.p.A.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Frankenversand</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Furia Bacalhau e Frutos do Mar</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Galería del gastrónomo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Godos Cocina Típica</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Gourmet Lanchonetes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Great Lakes Food Market</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GROSELLA-Restaurante</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hanari Carnes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>HILARION-Abastos</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hungry Coyote Import Store</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hungry Owl All-Night Grocers</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Island Trading</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Königlich Essen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>La corne d'abondance</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>La maison d'Asie</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Laughing Bacchus Wine Cellars</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lazy K Kountry Store</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lehmanns Marktstand</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Let's Stop N Shop</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LILA-Supermercado</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LINO-Delicateses</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lonesome Pine Restaurant</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Magazzini Alimentari Riuniti</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maison Dewey</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mère Paillarde</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Morgenstern Gesundkost</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>North/South</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Océano Atlántico Ltda.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Old World Delicatessen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ottilies Käseladen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paris spécialités</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pericles Comidas clásicas</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Piccolo und mehr</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Princesa Isabel Vinhos</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Que Delícia</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Queen Cozinha</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>QUICK-Stop</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rancho grande</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rattlesnake Canyon Grocery</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Reggiani Caseifici</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ricardo Adocicados</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Richter Supermarkt</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Romero y tomillo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Santé Gourmet</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Save-a-lot Markets</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Seven Seas Imports</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Simons bistro</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Spécialités du monde</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Split Rail Beer &amp; Ale</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Suprêmes délices</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>The Big Cheese</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>The Cracker Box</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Toms Spezialitäten</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tortuga Restaurante</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tradição Hipermercados</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Trail's Head Gourmet Provisioners</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vaffeljernet</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Victuailles en stock</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vins et alcools Chevalier</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wartian Herkku</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wellington Importadora</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>White Clover Markets</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wilman Kala</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wolski  Zajazd</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <KeyColumns>
+          <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>91</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Alejandra Camino</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Alexander Feuer</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ana Trujillo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Anabela Domingues</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>André Fonseca</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ann Devon</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Annette Roulet</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Antonio Moreno</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Aria Cruz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Art Braunschweiger</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bernardo Batista</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carine Schmitt</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carlos González</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carlos Hernández</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Catherine Dewey</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Christina Berglund</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Daniel Tonini</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Diego Roel</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Dominique Perrier</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Eduardo Saavedra</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Elizabeth Brown</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Elizabeth Lincoln</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Felipe Izquierdo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Fran Wilson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Francisco Chang</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Frédérique Citeaux</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Georg Pipps</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Giovanni Rovelli</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Guillermo Fernández</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hanna Moos</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hari Kumar</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Helen Bennett</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Helvetius Nagy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Henriette Pfalzheim</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horst Kloss</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Howard Snyder</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Isabel de Castro</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jaime Yorres</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Janete Limeira</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Janine Labrune</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jean Fresnière</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>John Steel</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jonas Bergulfsen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jose Pavarotti</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>José Pedro Freyre</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jytte Petersen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Karin Josephs</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Karl Jablonski</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Laurence Lebihan</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lino Rodriguez</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Liu Wong</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Liz Nixon</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lúcia Carvalho</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Manuel Pereira</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maria Anders</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maria Larsson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marie Bertrand</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mario Pontes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Martín Sommer</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Martine Rancé</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mary Saveley</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Matti Karttunen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maurizio Moroni</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Michael Holz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Miguel Angel Paolino</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Palle Ibsen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paolo Accorti</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pascale Cartrain</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Patricia McKenna</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Patricio Simpson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paul Henriot</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paula Parente</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paula Wilson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pedro Afonso</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Peter Franken</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Philip Cramer</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pirkko Koskitalo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Renate Messner</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rene Phillips</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rita Müller</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Roland Mendel</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sergio Gutiérrez</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Simon Crowther</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sven Ottlieb</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Thomas Hardy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Victoria Ashworth</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Yang Wang</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Yoshi Latimer</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Yoshi Tannamuri</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Yvonne Moncada</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Zbyszek Piestrzeniewicz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>12</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Accounting Manager</Value>
+            <Count>10</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Assistant Sales Agent</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Assistant Sales Representative</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marketing Assistant</Value>
+            <Count>6</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marketing Manager</Value>
+            <Count>12</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Order Administrator</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Owner</Value>
+            <Count>17</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Owner/Marketing Assistant</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Agent</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Associate</Value>
+            <Count>7</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Manager</Value>
+            <Count>11</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Representative</Value>
+            <Count>17</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <KeyColumns>
+          <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>91</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1 rue Alsace-Lorraine</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>12 Orchestra Terrace</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>12, rue des Bouchers</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>120 Hanover Sq.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>184, chaussée de Tournai</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>187 Suffolk Ln.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1900 Oak St.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2, rue du Commerce</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>23 Tsawassen Blvd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>24, place Kléber</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>25, rue Lauriston</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>265, boulevard Charonne</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2732 Baker Blvd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2743 Bering St.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2817 Milton Dr.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>305 - 14th Ave. S. Suite 3B</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>35 King George</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>43 rue St. Laurent</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>54, rue Royale</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>55 Grizzly Peak Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>59 rue de l'Abbaye</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5ª Ave. Los Palos Grandes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>67, avenue de l'Europe</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>67, rue des Cinquante Otages</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>722 DaVinci Blvd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8 Johnstown Road</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>87 Polk St. Suite 5</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>89 Chiaroscuro Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>89 Jefferson Way Suite 2</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>90 Wadhurst Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adenauerallee 900</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Åkergatan 24</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Alameda dos Canàrios, 891</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. Brasil, 442</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. Copacabana, 267</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. del Libertador 900</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. dos Lusíadas, 23</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. Inês de Castro, 414</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Avda. Azteca 123</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Avda. de la Constitución 2222</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ave. 5 de Mayo Porlamar</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berguvsvägen  8</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berkeley Gardens 12  Brewery</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berliner Platz 43</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Boulevard Tirou, 255</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C/ Araquil, 67</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C/ Moralzarzal, 86</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C/ Romero, 33</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Calle Dr. Jorge Cash 321</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carrera 22 con Ave. Carlos Soublette #8-35</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carrera 52 con Ave. Bolívar #65-98 Llano Largo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cerrito 333</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>City Center Plaza 516 Main St.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Erling Skakkes gate 78</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Estrada da saúde n. 58</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Fauntleroy Circus</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Forsterstr. 57</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Garden House Crowther Way</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Geislweg 14</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Gran Vía, 1</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Grenzacherweg 237</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hauptstr. 29</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Heerstr. 22</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ing. Gustavo Moncada 8585 Piso 20-A</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jardim das rosas n. 32</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Keskuskatu 45</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Kirchgasse 6</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Luisenstr. 48</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Magazinweg 7</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mataderos  2312</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Maubelstr. 90</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mehrheimerstr. 369</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Obere Str. 57</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>P.O. Box 555</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rambla de Cataluña, 23</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rua da Panificadora, 12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rua do Mercado, 12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rua do Paço, 67</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rua Orós, 92</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rue Joseph-Bens 532</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sierras de Granada 9993</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Smagsloget 45</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>South House 300 Queensbridge</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Strada Provinciale 124</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Taucherstraße 10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Torikatu 38</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ul. Filtrowa 68</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Via Ludovico il Moro 22</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Via Monte Bianco 34</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vinbæltet 34</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Walserweg 21</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>69</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Aachen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Albuquerque</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Anchorage</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Århus</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Barcelona</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Barquisimeto</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bergamo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berlin</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bern</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Boise</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bräcke</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Brandenburg</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bruxelles</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Buenos Aires</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Butte</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Campinas</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Caracas</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Charleroi</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cork</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cowes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cunewalde</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Elgin</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Eugene</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Frankfurt a.M.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Genève</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Graz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Helsinki</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>I. de Margarita</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Kirkland</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Kobenhavn</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Köln</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lander</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Leipzig</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lille</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lisboa</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>London</Value>
+            <Count>6</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Luleå</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lyon</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Madrid</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mannheim</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marseille</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>México D.F.</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Montréal</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>München</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Münster</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nantes</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Oulu</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paris</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Portland</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Reggio Emilia</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Reims</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Resende</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rio de Janeiro</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Salzburg</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>San Cristóbal</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>San Francisco</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sao Paulo</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Seattle</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sevilla</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Stavern</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Strasbourg</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Stuttgart</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Torino</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Toulouse</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tsawassen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vancouver</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Versailles</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Walla Walla</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Warszawa</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <KeyColumns>
+          <Column Name="CodigoPostal" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>false</IsExactKey>
+        <KeyStrength>0.956044</KeyStrength>
+        <KeyViolations>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>1010</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>44000</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>05033</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+        </KeyViolations>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="CodigoPostal" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>86</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>01-012</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>01307</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02389-673</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02389-890</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>04179</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>04876-786</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05021</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05022</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05023</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05033</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05432-043</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05442-030</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05454-876</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05487-020</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>05634-030</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>08022</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>08737-363</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1010</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>10100</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1081</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1203</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>12209</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>13008</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>14776</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1675</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1734</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1756</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>21240</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>24100</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>28001</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>28023</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>28034</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3012</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>31000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3508</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4110</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>41101</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>42100</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>44000</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>44087</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4980</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5020</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5022</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>50739</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>51100</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>52066</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>59000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>59801</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>60528</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>67000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>68306</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>69004</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>70563</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>75012</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>75016</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>78000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8010</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>80805</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8200</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>82520</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>83720</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>87110</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>90110</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>94117</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>97201</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>97219</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>97403</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>97827</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>98034</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>98128</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>99362</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>99508</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>B-1180</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>B-6000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>EC2 5NT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>H1J 1C3</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OX15 4NB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PO31 7PJ</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>S-844 67</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>S-958 22</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SW7 1RZ</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>T2F 8M4</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>V3F 2K1</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WA1 1DP</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WX1 6LT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WX3 6FW</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>21</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Argentina</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Austria</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Belgium</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Brazil</Value>
+            <Count>9</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Canada</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Denmark</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Finland</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>France</Value>
+            <Count>11</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Germany</Value>
+            <Count>11</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ireland</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Italy</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mexico</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Norway</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Poland</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Portugal</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Spain</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sweden</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Switzerland</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>UK</Value>
+            <Count>7</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>USA</Value>
+            <Count>13</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Venezuela</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <KeyColumns>
+          <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>91</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>(02) 201 24 67</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(071) 23 67 22 20</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 123-5555</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 135-5333</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 135-5555</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 354-2534</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 356-5634</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 42.34.22.66</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 47.55.60.10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555-1189</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555-2167</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555-7647</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555-9482</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555-9857</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(14) 555-8122</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-0297</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-1212</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-1717</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-2282</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-7733</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-7788</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(198) 555-8888</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(2) 283-2951</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(206) 555-4112</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(206) 555-8257</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(208) 555-8097</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(21) 555-0091</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(21) 555-3412</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(21) 555-4252</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(26) 642-7012</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(307) 555-4680</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(406) 555-5834</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(415) 555-5938</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 552-3745</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 555-1340</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 555-2933</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 555-3392</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 555-3932</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(5) 555-4729</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(503) 555-3612</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(503) 555-6874</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(503) 555-7555</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(503) 555-9573</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(505) 555-5939</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(509) 555-7969</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(514) 555-8054</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(604) 555-3392</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(604) 555-4729</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(8) 34-56-12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(9) 331-6954</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(907) 555-7584</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(91) 555 22 82</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(91) 555 94 44</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(91) 745 6200</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(93) 203 4560</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(95) 555 82 82</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>011-4988260</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0221-0644327</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0241-039123</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0251-031259</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>030-0074321</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0342-023176</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>035-640230</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0372-035188</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0452-076545</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0522-556721</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0555-09876</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0621-08460</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>069-0245984</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0695-34 67 21</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0711-020361</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>07-98 92 35</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>089-0877310</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0897-034214</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>0921-12 34 65</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>20.16.10.16</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>26.47.15.10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2967 542</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>30.59.84.10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>31 12 34 56</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>40.32.21.21</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>40.67.88.88</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>61.77.61.10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>6562-9722</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>7675-3425</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>78.32.54.86</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>86 21 32 43</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>88.60.15.31</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>90-224 8858</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>91.24.45.40</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>981-443655</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="ClienteID" SqlDbType="NChar" MaxLength="5" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}\p{L}\p{L}\p{L}\p{L}</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Empresa" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>40</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>25</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+</RegexText>
+            <Frequency>4</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+-\p{L}+</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+-(\p{L}+ )+</RegexText>
+            <Frequency>2</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>97</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SALES REPRESENTATIVE</RegexText>
+            <Frequency>19</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ MANAGER</RegexText>
+            <Frequency>36</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>OWNER</RegexText>
+            <Frequency>19</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>MARKETING ASSISTANT</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SALES ASSOCIATE</RegexText>
+            <Frequency>8</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SALES AGENT</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+REPRESENTATIVE</RegexText>
+            <Frequency>1</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+AGENT</RegexText>
+            <Frequency>2</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \d\d</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+\d\d</RegexText>
+            <Frequency>4</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+\. \d\d</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+, (\p{L}+ )+</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+\p{L}+, \d\d</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>67</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>77</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>12</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ D\.F\.</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="CodigoPostal" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d\d</RegexText>
+            <Frequency>56</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d</RegexText>
+            <Frequency>18</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d\d-\d\d\d</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}\p{L}\d+ \d\p{L}\p{L}</RegexText>
+            <Frequency>8</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>9</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>GERMANY</RegexText>
+            <Frequency>12</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>FRANCE</RegexText>
+            <Frequency>12</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>BRAZIL</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>USA</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>MEXICO</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SPAIN</RegexText>
+            <Frequency>5</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UK</RegexText>
+            <Frequency>8</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>33</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Clientes" RowCount="91" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\d\) 555-\d\d\d\d</RegexText>
+            <Frequency>25</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d-\d+</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\) \d\d\d-\d\d\d\d</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\) 555-\d\d\d\d</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d-\d+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\.\d\d\.\d\d\.\d\d</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\) (\d+ )+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d-(\d+ )+</RegexText>
+            <Frequency>2</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\) \d\d\d-\d\d\d\d</RegexText>
+            <Frequency>1</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

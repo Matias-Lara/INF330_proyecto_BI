@@ -1,0 +1,393 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2026 12:00:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCAL"
+  DTS:CreatorName="Grupo 7"
+  DTS:DTSID="{13958AE9-6740-4B11-8382-160E5EEEF373}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1034"
+  DTS:ObjectName="04_Perfil_Empleados"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{D0C2684A-F6CA-4275-BA7A-AE37BD5C7455}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[KentFoods]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{08298BBE-8DF0-4A46-8A2F-106496C23752}"
+      DTS:ObjectName="KentFoods">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods;Integrated Security=True;TrustServerCertificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMPLEADOS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{AFF9554D-2546-45F9-BB7B-4CE0235ABE97}"
+      DTS:ObjectName="EMPLEADOS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\EMPLEADOS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TERRITORIOSEMPLEADOS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6EE8572D-DD01-4131-93AC-AFB6274E1BEF}"
+      DTS:ObjectName="TERRITORIOSEMPLEADOS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\TERRITORIOSEMPLEADOS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TERRITORIOS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{ED4596D4-0BC8-49A0-8309-AE5BD0D1A9BF}"
+      DTS:ObjectName="TERRITORIOS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\TERRITORIOS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[REGIONES_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{9027F09C-B67D-445C-AF84-8A33D91A1B0D}"
+      DTS:ObjectName="REGIONES_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\REGIONES_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Perfil EMPLEADOS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Empleados"
+      DTS:DTSID="{0EBF943C-7F19-4A80-98C9-679336689F82}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil EMPLEADOS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="EMPLEADOS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Perfil TERRITORIOSEMPLEADOS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.TerritoriosEmpleados"
+      DTS:DTSID="{297F7F30-8779-45CF-9A24-90529F3C650B}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil TERRITORIOSEMPLEADOS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="TERRITORIOSEMPLEADOS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="TerritoriosEmpleados" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Perfil TERRITORIOS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Territorios"
+      DTS:DTSID="{A8767448-044B-48CA-9F5B-9B14FBABDED1}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil TERRITORIOS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="TERRITORIOS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Perfil REGIONES"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Regiones"
+      DTS:DTSID="{64C5BC4D-0EE1-48BD-82DB-E7DCEBE99A04}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil REGIONES"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="REGIONES_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Regiones" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?><Objects Version="8"><Package design-time-name="Package"><LayoutInfo><GraphLayout Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph"><NodeLayout Size="200,42.6666666667" Id="Package\Perfil EMPLEADOS" TopLeft="30,30" /><NodeLayout Size="200,42.6666666667" Id="Package\Perfil TERRITORIOSEMPLEADOS" TopLeft="290,30" /><NodeLayout Size="200,42.6666666667" Id="Package\Perfil TERRITORIOS" TopLeft="30,108" /><NodeLayout Size="200,42.6666666667" Id="Package\Perfil REGIONES" TopLeft="290,108" /></GraphLayout></LayoutInfo></Package></Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

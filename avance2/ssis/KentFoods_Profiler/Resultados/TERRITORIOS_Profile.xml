@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{AFF9554D-2546-45F9-BB7B-4CE0235ABE97}" Name="EMPLEADOS_Profile.xml">
+      <DtsConnectionManagerID>EMPLEADOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{08298BBE-8DF0-4A46-8A2F-106496C23752}" Name="KentFoods">
+      <DtsConnectionManagerID>KentFoods</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{9027F09C-B67D-445C-AF84-8A33D91A1B0D}" Name="REGIONES_Profile.xml">
+      <DtsConnectionManagerID>REGIONES_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{ED4596D4-0BC8-49A0-8309-AE5BD0D1A9BF}" Name="TERRITORIOS_Profile.xml">
+      <DtsConnectionManagerID>TERRITORIOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{6EE8572D-DD01-4131-93AC-AFB6274E1BEF}" Name="TERRITORIOSEMPLEADOS_Profile.xml">
+      <DtsConnectionManagerID>TERRITORIOSEMPLEADOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Territorios" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="-1" />
+        <Column Name="TerritorioID" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="-1" />
+        <Column Name="Territorio" SqlDbType="NChar" MaxLength="50" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="-1" />
+        <Column Name="RegionID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="-1" />
+        <KeyColumns>
+          <Column Name="TerritorioID" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="RegionID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>4</MaxValue>
+        <Mean>2.15094339622642</Mean>
+        <StdDev>1.07099365632592</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="TerritorioID" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>5</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>53</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="Territorio" SqlDbType="NChar" MaxLength="50" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>16</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="TerritorioID" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>53</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>01581</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>01730</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>01833</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02116</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02139</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02184</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>02903</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>03049</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>03801</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>06897</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>07960</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>08837</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>10019</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>10038</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>11747</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>14450</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>19428</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>19713</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>20852</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>27403</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>27511</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>29202</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>30346</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>31406</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>32859</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>33607</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>40222</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>44122</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>45839</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>48075</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>48084</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>48304</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>53404</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>55113</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>55439</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>60179</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>60601</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>72716</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>75234</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>78759</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>80202</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>80909</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>85014</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>85251</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>90405</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>94025</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>94105</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>95008</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>95054</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>95060</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>98004</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>98052</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>98104</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <KeyColumns>
+          <Column Name="Territorio" SqlDbType="NChar" MaxLength="50" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>false</IsExactKey>
+        <KeyStrength>0.9811321</KeyStrength>
+        <KeyViolations>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>New York                                          </ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+        </KeyViolations>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="Territorio" SqlDbType="NChar" MaxLength="50" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>52</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Atlanta                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Austin                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Beachwood                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bedford                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bellevue                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bentonville                                       </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bloomfield Hills                                  </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Boston                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Braintree                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cambridge                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Campbell                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cary                                              </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chicago                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Colorado Springs                                  </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Columbia                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Dallas                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Denver                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Edison                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Fairport                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Findlay                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Georgetow                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Greensboro                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hoffman Estates                                   </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hollis                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Louisville                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mellvile                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Menlo Park                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Minneapolis                                       </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Morristown                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>New York                                          </Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Neward                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Orlando                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Philadelphia                                      </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Phoenix                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Portsmouth                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Providence                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Racine                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Redmond                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rockville                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Roseville                                         </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>San Francisco                                     </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Santa Clara                                       </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Santa Cruz                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Santa Monica                                      </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Savannah                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Scottsdale                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Seattle                                           </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Southfield                                        </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tampa                                             </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Troy                                              </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Westboro                                          </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wilton                                            </Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="RegionID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>4</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1</Value>
+            <Count>19</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2</Value>
+            <Count>15</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3</Value>
+            <Count>11</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4</Value>
+            <Count>8</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="TerritorioID" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Territorios" RowCount="53" />
+        <Column Name="Territorio" SqlDbType="NChar" MaxLength="50" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>81</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>19</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

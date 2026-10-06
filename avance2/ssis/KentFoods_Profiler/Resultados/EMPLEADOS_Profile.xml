@@ -1,0 +1,893 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{AFF9554D-2546-45F9-BB7B-4CE0235ABE97}" Name="EMPLEADOS_Profile.xml">
+      <DtsConnectionManagerID>EMPLEADOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{08298BBE-8DF0-4A46-8A2F-106496C23752}" Name="KentFoods">
+      <DtsConnectionManagerID>KentFoods</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{9027F09C-B67D-445C-AF84-8A33D91A1B0D}" Name="REGIONES_Profile.xml">
+      <DtsConnectionManagerID>REGIONES_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{ED4596D4-0BC8-49A0-8309-AE5BD0D1A9BF}" Name="TERRITORIOS_Profile.xml">
+      <DtsConnectionManagerID>TERRITORIOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{6EE8572D-DD01-4131-93AC-AFB6274E1BEF}" Name="TERRITORIOSEMPLEADOS_Profile.xml">
+      <DtsConnectionManagerID>TERRITORIOSEMPLEADOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table Schema="dbo" Table="Empleados" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="-1" />
+        <Column Name="EmpleadoID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="-1" />
+        <Column Name="Apellido" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="-1" />
+        <Column Name="Nombre" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="-1" />
+        <KeyColumns>
+          <Column Name="EmpleadoID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaNacimiento" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaContratacion" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="EmpleadoID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9</MaxValue>
+        <Mean>5</Mean>
+        <StdDev>2.58198889747161</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaNacimiento" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1937-09-19T00:00:00.0000000</MinValue>
+        <MaxValue>1966-01-27T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaContratacion" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1992-04-01T00:00:00.0000000</MinValue>
+        <MaxValue>1994-11-15T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Apellido" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>9</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Nombre" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>8</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>13</MinLength>
+        <MaxLength>24</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>15</MinLength>
+        <MaxLength>30</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>8</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>2</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="EmpleadoID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>6</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>7</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>9</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <KeyColumns>
+          <Column Name="Apellido" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Apellido" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Buchanan</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Callahan</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Davolio</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Dodsworth</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Fuller</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>King</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Leverling</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Peacock</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Suyama</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <KeyColumns>
+          <Column Name="Nombre" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Nombre" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Andrew</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Anne</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Janet</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Laura</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Margaret</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Michael</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nancy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Robert</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Steven</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>4</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Inside Sales Coordinator</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Manager</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Representative</Value>
+            <Count>6</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Vice President, Sales</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <KeyColumns>
+          <Column Name="FechaNacimiento" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaNacimiento" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1937-09-19T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1948-12-08T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1952-02-19T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1955-03-04T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1958-01-09T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1960-05-29T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1963-07-02T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1963-08-30T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1966-01-27T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="FechaContratacion" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>8</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1992-04-01T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1992-05-01T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1992-08-14T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1993-05-03T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1993-10-17T00:00:00.0000000</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1994-01-02T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1994-03-05T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1994-11-15T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <KeyColumns>
+          <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>14 Garrett Hill</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4110 Old Redmond Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4726 - 11th Ave. N.E.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>507 - 20th Ave. E.
+Apt. 2A</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>7 Houndstooth Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>722 Moss Bay Blvd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>908 W. Capital Way</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Coventry House
+Miner Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Edgeham Hollow
+Winchester Way</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>5</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Kirkland</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>London</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Redmond</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Seattle</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tacoma</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>2</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>UK</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>USA</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Apellido" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>LEVERLING</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>DODSWORTH</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>CALLAHAN</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>BUCHANAN</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>DAVOLIO</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>PEACOCK</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>FULLER</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SUYAMA</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>KING</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Nombre" SqlDbType="NVarChar" MaxLength="10" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>MARGARET</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>MICHAEL</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>ROBERT</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>STEVEN</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>ANDREW</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NANCY</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>LAURA</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>JANET</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>ANNE</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SALES REPRESENTATIVE</RegexText>
+            <Frequency>67</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>INSIDE SALES COORDINATOR</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>VICE PRESIDENT, SALES</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SALES MANAGER</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>EDGEHAM HOLLOW WINCHESTER WAY</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>COVENTRY HOUSE MINER RD.</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ GARRETT HILL</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ HOUNDSTOOTH RD\.</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ OLD REDMOND RD\.</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ MOSS BAY BLVD\.</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ W\. CAPITAL WAY</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ - 20TH AVE\. E\. APT\. 2A</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ - 11TH AVE\. N\.E\.</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>LONDON</RegexText>
+            <Frequency>44</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SEATTLE</RegexText>
+            <Frequency>22</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>KIRKLAND</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>REDMOND</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>TACOMA</RegexText>
+            <Frequency>11</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{08298BBE-8DF0-4A46-8A2F-106496C23752}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Empleados" RowCount="9" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>USA</RegexText>
+            <Frequency>56</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UK</RegexText>
+            <Frequency>44</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

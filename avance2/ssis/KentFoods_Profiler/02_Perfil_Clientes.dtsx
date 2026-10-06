@@ -1,0 +1,123 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2026 12:00:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCAL"
+  DTS:CreatorName="Grupo 7"
+  DTS:DTSID="{8C215CC6-8BA9-4770-931F-AA775DE362D7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1034"
+  DTS:ObjectName="02_Perfil_Clientes"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{67E65284-7CED-4EC7-8832-16C4FCD40799}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[KentFoods]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{F971494D-AC26-490C-B897-E1BF88AA15C3}"
+      DTS:ObjectName="KentFoods">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods;Integrated Security=True;TrustServerCertificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CLIENTES_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8D38BFA7-057B-4B55-8173-80D27CD72669}"
+      DTS:ObjectName="CLIENTES_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\CLIENTES_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Perfil CLIENTES"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Clientes"
+      DTS:DTSID="{56B1FDFA-9B1B-4CFD-A9AC-498981D83B19}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil CLIENTES"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="CLIENTES_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{F971494D-AC26-490C-B897-E1BF88AA15C3}</DataSourceID>
+        <Table Schema="dbo" Table="Clientes" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?><Objects Version="8"><Package design-time-name="Package"><LayoutInfo><GraphLayout Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph"><NodeLayout Size="200,42.6666666667" Id="Package\Perfil CLIENTES" TopLeft="30,30" /></GraphLayout></LayoutInfo></Package></Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

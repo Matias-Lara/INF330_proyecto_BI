@@ -1,0 +1,824 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts" DTS:refId="Package" DTS:CreationDate="10/6/2026 2:08:42 PM" DTS:CreationName="Microsoft.Package" DTS:CreatorComputerName="PC-MATI" DTS:CreatorName="Grupo 7" DTS:DTSID="{D42E8A45-5FD0-4F92-A8A0-F0E5CD42A07F}" DTS:ExecutableType="Microsoft.Package" DTS:LastModifiedProductVersion="15.0.2000.5" DTS:LocaleID="13322" DTS:ObjectName="01_ETL_KentFoods_OLTP_Stage" DTS:PackageType="5" DTS:ProtectionLevel="0" DTS:VersionGUID="{689F2619-1EEF-44AD-ADDA-A02F6CC59927}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager DTS:refId="Package.ConnectionManagers[KentFoods_OLTP]" DTS:CreationName="OLEDB" DTS:DTSID="{863240AE-FA73-4241-A75E-594F553435C8}" DTS:ObjectName="KentFoods_OLTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Trust Server Certificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager DTS:refId="Package.ConnectionManagers[KentFoods_STAGE]" DTS:CreationName="OLEDB" DTS:DTSID="{109BE39F-034F-4BB2-94F6-74C25F9358F1}" DTS:ObjectName="KentFoods_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods_STAGE;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Trust Server Certificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable DTS:refId="Package\00_Limpiar_STAGE" DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:Description="Vacía las tablas del área Stage antes de una carga completa" DTS:DTSID="{125E2B3B-FC55-4300-AD03-6368E9A082EB}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:LocaleID="-1" DTS:ObjectName="00_Limpiar_STAGE" DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData SQLTask:Connection="{109BE39F-034F-4BB2-94F6-74C25F9358F1}" SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.ST_DETALLE;&#xA;TRUNCATE TABLE dbo.ST_ORDEN;&#xA;TRUNCATE TABLE dbo.ST_EMPLEADO;&#xA;TRUNCATE TABLE dbo.ST_PRODUCTO;&#xA;TRUNCATE TABLE dbo.ST_TRANSPORTISTA;&#xA;TRUNCATE TABLE dbo.ST_PROVEEDOR;&#xA;TRUNCATE TABLE dbo.ST_CLIENTE;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\01_DFT_CLIENTE" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.Clientes -&gt; ST_CLIENTE (clave alfanumérica a varchar, TRIM de textos)" DTS:DTSID="{19515171-FF03-4E19-BC96-10F8B8674AA4}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="01_DFT_CLIENTE" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_CLIENTE" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_CLIENTE]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].Columns[ClienteCodigo]" cachedCodepage="1252" cachedDataType="str" cachedLength="10" cachedName="ClienteCodigo" externalMetadataColumnId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[ClienteCodigo]" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" />
+                    <inputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].Columns[NombreEmpresa]" cachedCodepage="1252" cachedDataType="str" cachedLength="100" cachedName="NombreEmpresa" externalMetadataColumnId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[NombreEmpresa]" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[NombreEmpresa]" />
+                    <inputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].Columns[Ciudad]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Ciudad" externalMetadataColumnId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Ciudad]" />
+                    <inputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].Columns[CodigoPostal]" cachedCodepage="1252" cachedDataType="str" cachedLength="20" cachedName="CodigoPostal" externalMetadataColumnId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[CodigoPostal]" />
+                    <inputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].Columns[Pais]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Pais" externalMetadataColumnId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[Pais]" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[ClienteCodigo]" codePage="1252" dataType="str" length="10" name="ClienteCodigo" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[NombreEmpresa]" codePage="1252" dataType="str" length="100" name="NombreEmpresa" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]" codePage="1252" dataType="str" length="50" name="Ciudad" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]" codePage="1252" dataType="str" length="20" name="CodigoPostal" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input].ExternalColumns[Pais]" codePage="1252" dataType="str" length="50" name="Pais" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_CLIENTE" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(LTRIM(RTRIM(ClienteID)) AS varchar(10))   AS ClienteCodigo,
+       CAST(LTRIM(RTRIM(Empresa)) AS varchar(100))    AS NombreEmpresa,
+       CAST(LTRIM(RTRIM(Ciudad)) AS varchar(50))      AS Ciudad,
+       CAST(LTRIM(RTRIM(CodigoPostal)) AS varchar(20)) AS CodigoPostal,
+       CAST(LTRIM(RTRIM(Pais)) AS varchar(50))        AS Pais
+FROM dbo.Clientes;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[ClienteCodigo]" length="10" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" name="ClienteCodigo" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[NombreEmpresa]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[NombreEmpresa]" length="100" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[NombreEmpresa]" name="NombreEmpresa" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Ciudad]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]" length="50" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Ciudad]" name="Ciudad" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[CodigoPostal]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[CodigoPostal]" length="20" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[CodigoPostal]" name="CodigoPostal" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Pais]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[Pais]" length="50" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].Columns[Pais]" name="Pais" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[ClienteCodigo]" codePage="1252" dataType="str" length="10" name="ClienteCodigo" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[NombreEmpresa]" codePage="1252" dataType="str" length="100" name="NombreEmpresa" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]" codePage="1252" dataType="str" length="50" name="Ciudad" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[CodigoPostal]" codePage="1252" dataType="str" length="20" name="CodigoPostal" />
+                    <externalMetadataColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output].ExternalColumns[Pais]" codePage="1252" dataType="str" length="50" name="Pais" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ClienteCodigo]" codePage="1252" dataType="str" length="10" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ClienteCodigo]" name="ClienteCodigo" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[NombreEmpresa]" codePage="1252" dataType="str" length="100" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[NombreEmpresa]" name="NombreEmpresa" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[Ciudad]" codePage="1252" dataType="str" length="50" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[Ciudad]" name="Ciudad" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]" codePage="1252" dataType="str" length="20" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]" name="CodigoPostal" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[Pais]" codePage="1252" dataType="str" length="50" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[Pais]" name="Pais" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\01_DFT_CLIENTE.Paths[OLE DB Source Output]" endId="Package\01_DFT_CLIENTE\DST_ST_CLIENTE.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\01_DFT_CLIENTE\SRC_ST_CLIENTE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\02_DFT_PROVEEDOR" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.Proveedores -&gt; ST_PROVEEDOR" DTS:DTSID="{9749D98E-A55F-4C3A-8B10-3E9073182D33}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="02_DFT_PROVEEDOR" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_PROVEEDOR" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_PROVEEDOR]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].Columns[ProveedorID]" cachedDataType="i4" cachedName="ProveedorID" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[ProveedorID]" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[ProveedorID]" />
+                    <inputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].Columns[Proveedor]" cachedCodepage="1252" cachedDataType="str" cachedLength="100" cachedName="Proveedor" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Proveedor]" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Proveedor]" />
+                    <inputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].Columns[Ciudad]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Ciudad" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Ciudad]" />
+                    <inputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].Columns[Pais]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Pais" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Pais]" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[ProveedorID]" dataType="i4" name="ProveedorID" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Proveedor]" codePage="1252" dataType="str" length="100" name="Proveedor" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]" codePage="1252" dataType="str" length="50" name="Ciudad" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input].ExternalColumns[Pais]" codePage="1252" dataType="str" length="50" name="Pais" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_PROVEEDOR" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(ProveedorID AS int)                     AS ProveedorID,
+       CAST(LTRIM(RTRIM(Proveedor)) AS varchar(100)) AS Proveedor,
+       CAST(LTRIM(RTRIM(Ciudad)) AS varchar(50))     AS Ciudad,
+       CAST(LTRIM(RTRIM(Pais)) AS varchar(50))       AS Pais
+FROM dbo.Proveedores;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[ProveedorID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[ProveedorID]" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[ProveedorID]" name="ProveedorID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Proveedor]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Proveedor]" length="100" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Proveedor]" name="Proveedor" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Ciudad]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]" length="50" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Ciudad]" name="Ciudad" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Pais]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Pais]" length="50" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].Columns[Pais]" name="Pais" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[ProveedorID]" dataType="i4" name="ProveedorID" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Proveedor]" codePage="1252" dataType="str" length="100" name="Proveedor" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]" codePage="1252" dataType="str" length="50" name="Ciudad" />
+                    <externalMetadataColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output].ExternalColumns[Pais]" codePage="1252" dataType="str" length="50" name="Pais" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ProveedorID]" dataType="i4" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ProveedorID]" name="ProveedorID" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Proveedor]" codePage="1252" dataType="str" length="100" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Proveedor]" name="Proveedor" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Ciudad]" codePage="1252" dataType="str" length="50" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Ciudad]" name="Ciudad" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Pais]" codePage="1252" dataType="str" length="50" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[Pais]" name="Pais" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\02_DFT_PROVEEDOR.Paths[OLE DB Source Output]" endId="Package\02_DFT_PROVEEDOR\DST_ST_PROVEEDOR.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\02_DFT_PROVEEDOR\SRC_ST_PROVEEDOR.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\03_DFT_TRANSPORTISTA" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.Transportistas -&gt; ST_TRANSPORTISTA" DTS:DTSID="{8CB04618-2DD2-4A79-956C-C3D6DE731588}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="03_DFT_TRANSPORTISTA" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_TRANSPORTISTA" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_TRANSPORTISTA]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].Columns[TransportistaID]" cachedDataType="i4" cachedName="TransportistaID" externalMetadataColumnId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].ExternalColumns[TransportistaID]" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[TransportistaID]" />
+                    <inputColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].Columns[Transportista]" cachedCodepage="1252" cachedDataType="str" cachedLength="100" cachedName="Transportista" externalMetadataColumnId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].ExternalColumns[Transportista]" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[Transportista]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].ExternalColumns[TransportistaID]" dataType="i4" name="TransportistaID" />
+                    <externalMetadataColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input].ExternalColumns[Transportista]" codePage="1252" dataType="str" length="100" name="Transportista" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_TRANSPORTISTA" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(TransportistaID AS int)                      AS TransportistaID,
+       CAST(LTRIM(RTRIM(Transportista)) AS varchar(100)) AS Transportista
+FROM dbo.Transportistas;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[TransportistaID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].ExternalColumns[TransportistaID]" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[TransportistaID]" name="TransportistaID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[Transportista]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].ExternalColumns[Transportista]" length="100" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].Columns[Transportista]" name="Transportista" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].ExternalColumns[TransportistaID]" dataType="i4" name="TransportistaID" />
+                    <externalMetadataColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output].ExternalColumns[Transportista]" codePage="1252" dataType="str" length="100" name="Transportista" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[TransportistaID]" dataType="i4" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[TransportistaID]" name="TransportistaID" />
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[Transportista]" codePage="1252" dataType="str" length="100" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[Transportista]" name="Transportista" />
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\03_DFT_TRANSPORTISTA.Paths[OLE DB Source Output]" endId="Package\03_DFT_TRANSPORTISTA\DST_ST_TRANSPORTISTA.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\03_DFT_TRANSPORTISTA\SRC_ST_TRANSPORTISTA.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\04_DFT_PRODUCTO" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.Productos + Categorias -&gt; ST_PRODUCTO (categoría desnormalizada)" DTS:DTSID="{25638ECA-A9D9-4834-BAE8-9898CE81B4A9}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="04_DFT_PRODUCTO" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_PRODUCTO" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_PRODUCTO]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].Columns[ProductoID]" cachedDataType="i4" cachedName="ProductoID" externalMetadataColumnId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[ProductoID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProductoID]" />
+                    <inputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].Columns[NombreProducto]" cachedCodepage="1252" cachedDataType="str" cachedLength="100" cachedName="NombreProducto" externalMetadataColumnId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[NombreProducto]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreProducto]" />
+                    <inputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].Columns[ProveedorID]" cachedDataType="i4" cachedName="ProveedorID" externalMetadataColumnId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[ProveedorID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProveedorID]" />
+                    <inputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].Columns[CategoriaID]" cachedDataType="i4" cachedName="CategoriaID" externalMetadataColumnId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[CategoriaID]" />
+                    <inputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].Columns[NombreCategoria]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="NombreCategoria" externalMetadataColumnId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[NombreCategoria]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreCategoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[ProductoID]" dataType="i4" name="ProductoID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[NombreProducto]" codePage="1252" dataType="str" length="100" name="NombreProducto" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[ProveedorID]" dataType="i4" name="ProveedorID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaID]" dataType="i4" name="CategoriaID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input].ExternalColumns[NombreCategoria]" codePage="1252" dataType="str" length="50" name="NombreCategoria" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_PRODUCTO" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(P.ProductoID AS int)                      AS ProductoID,
+       CAST(LTRIM(RTRIM(P.Producto)) AS varchar(100))  AS NombreProducto,
+       CAST(P.ProveedorID AS int)                      AS ProveedorID,
+       CAST(P.CategoriaID AS int)                      AS CategoriaID,
+       CAST(LTRIM(RTRIM(C.Categoria)) AS varchar(50))  AS NombreCategoria
+FROM dbo.Productos AS P
+INNER JOIN dbo.Categorias AS C
+        ON C.CategoriaID = P.CategoriaID;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProductoID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[ProductoID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProductoID]" name="ProductoID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreProducto]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[NombreProducto]" length="100" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreProducto]" name="NombreProducto" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProveedorID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[ProveedorID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[ProveedorID]" name="ProveedorID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[CategoriaID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[CategoriaID]" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[CategoriaID]" name="CategoriaID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreCategoria]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[NombreCategoria]" length="50" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].Columns[NombreCategoria]" name="NombreCategoria" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[ProductoID]" dataType="i4" name="ProductoID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[NombreProducto]" codePage="1252" dataType="str" length="100" name="NombreProducto" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[ProveedorID]" dataType="i4" name="ProveedorID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[CategoriaID]" dataType="i4" name="CategoriaID" />
+                    <externalMetadataColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output].ExternalColumns[NombreCategoria]" codePage="1252" dataType="str" length="50" name="NombreCategoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ProductoID]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ProductoID]" name="ProductoID" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[NombreProducto]" codePage="1252" dataType="str" length="100" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[NombreProducto]" name="NombreProducto" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ProveedorID]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ProveedorID]" name="ProveedorID" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[CategoriaID]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[CategoriaID]" name="CategoriaID" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[NombreCategoria]" codePage="1252" dataType="str" length="50" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[NombreCategoria]" name="NombreCategoria" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\04_DFT_PRODUCTO.Paths[OLE DB Source Output]" endId="Package\04_DFT_PRODUCTO\DST_ST_PRODUCTO.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\04_DFT_PRODUCTO\SRC_ST_PRODUCTO.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\05_DFT_EMPLEADO" DTS:CreationName="Microsoft.Pipeline" DTS:Description="Empleados + Territorios + Regiones -&gt; ST_EMPLEADO (un territorio por empleado: menor TerritorioID)" DTS:DTSID="{10E9C237-138F-407F-8A94-FA9C5DD395B1}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="05_DFT_EMPLEADO" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_EMPLEADO" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_EMPLEADO]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].Columns[EmpleadoID]" cachedDataType="i4" cachedName="EmpleadoID" externalMetadataColumnId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[EmpleadoID]" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[EmpleadoID]" />
+                    <inputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].Columns[NombreEmpleado]" cachedCodepage="1252" cachedDataType="str" cachedLength="100" cachedName="NombreEmpleado" externalMetadataColumnId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[NombreEmpleado]" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[NombreEmpleado]" />
+                    <inputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].Columns[Territorio]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Territorio" externalMetadataColumnId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[Territorio]" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Territorio]" />
+                    <inputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].Columns[Region]" cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Region" externalMetadataColumnId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[Region]" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Region]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[EmpleadoID]" dataType="i4" name="EmpleadoID" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[NombreEmpleado]" codePage="1252" dataType="str" length="100" name="NombreEmpleado" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[Territorio]" codePage="1252" dataType="str" length="50" name="Territorio" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input].ExternalColumns[Region]" codePage="1252" dataType="str" length="50" name="Region" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_EMPLEADO" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(E.EmpleadoID AS int)                                                    AS EmpleadoID,
+       CAST(LTRIM(RTRIM(E.Nombre)) + ' ' + LTRIM(RTRIM(E.Apellido)) AS varchar(100)) AS NombreEmpleado,
+       CAST(RTRIM(T.Territorio) AS varchar(50))                                      AS Territorio,
+       CAST(RTRIM(R.Region) AS varchar(50))                                          AS Region
+FROM dbo.Empleados AS E
+OUTER APPLY (SELECT TOP (1) TE.TerritorioID
+             FROM dbo.TerritoriosEmpleados AS TE
+             WHERE TE.EmpleadoID = E.EmpleadoID
+             ORDER BY TE.TerritorioID) AS X
+LEFT JOIN dbo.Territorios AS T ON T.TerritorioID = X.TerritorioID
+LEFT JOIN dbo.Regiones    AS R ON R.RegionID     = T.RegionID;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[EmpleadoID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[EmpleadoID]" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[EmpleadoID]" name="EmpleadoID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[NombreEmpleado]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[NombreEmpleado]" length="100" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[NombreEmpleado]" name="NombreEmpleado" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Territorio]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[Territorio]" length="50" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Territorio]" name="Territorio" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Region]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[Region]" length="50" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].Columns[Region]" name="Region" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[EmpleadoID]" dataType="i4" name="EmpleadoID" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[NombreEmpleado]" codePage="1252" dataType="str" length="100" name="NombreEmpleado" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[Territorio]" codePage="1252" dataType="str" length="50" name="Territorio" />
+                    <externalMetadataColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output].ExternalColumns[Region]" codePage="1252" dataType="str" length="50" name="Region" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[EmpleadoID]" dataType="i4" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[EmpleadoID]" name="EmpleadoID" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[NombreEmpleado]" codePage="1252" dataType="str" length="100" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[NombreEmpleado]" name="NombreEmpleado" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[Territorio]" codePage="1252" dataType="str" length="50" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[Territorio]" name="Territorio" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[Region]" codePage="1252" dataType="str" length="50" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[Region]" name="Region" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\05_DFT_EMPLEADO.Paths[OLE DB Source Output]" endId="Package\05_DFT_EMPLEADO\DST_ST_EMPLEADO.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\05_DFT_EMPLEADO\SRC_ST_EMPLEADO.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\06_DFT_ORDEN" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.Ordenes -&gt; ST_ORDEN (fechas a tipo date, clave de cliente depurada)" DTS:DTSID="{F4C79118-8C43-4FA9-877E-CC0BAE832AA2}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="06_DFT_ORDEN" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\06_DFT_ORDEN\DST_ST_ORDEN" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_ORDEN" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_ORDEN]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[OrdenID]" cachedDataType="i4" cachedName="OrdenID" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[OrdenID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[OrdenID]" />
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[ClienteCodigo]" cachedCodepage="1252" cachedDataType="str" cachedLength="10" cachedName="ClienteCodigo" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[ClienteCodigo]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" />
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[EmpleadoID]" cachedDataType="i4" cachedName="EmpleadoID" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[EmpleadoID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[EmpleadoID]" />
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[TransportistaID]" cachedDataType="i4" cachedName="TransportistaID" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[TransportistaID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[TransportistaID]" />
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[FechaOrden]" cachedDataType="dbDate" cachedName="FechaOrden" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[FechaOrden]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaOrden]" />
+                    <inputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].Columns[FechaEnvio]" cachedDataType="dbDate" cachedName="FechaEnvio" externalMetadataColumnId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[FechaEnvio]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaEnvio]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[OrdenID]" dataType="i4" name="OrdenID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[ClienteCodigo]" codePage="1252" dataType="str" length="10" name="ClienteCodigo" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[EmpleadoID]" dataType="i4" name="EmpleadoID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[TransportistaID]" dataType="i4" name="TransportistaID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[FechaOrden]" dataType="dbDate" name="FechaOrden" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input].ExternalColumns[FechaEnvio]" dataType="dbDate" name="FechaEnvio" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_ORDEN" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(OrdenID AS int)                       AS OrdenID,
+       CAST(LTRIM(RTRIM(ClienteID)) AS varchar(10)) AS ClienteCodigo,
+       CAST(EmpleadoID AS int)                    AS EmpleadoID,
+       CAST(EnviadoPor AS int)                    AS TransportistaID,
+       CAST(FechaOrden AS date)                   AS FechaOrden,
+       CAST(FechaEnvio AS date)                   AS FechaEnvio
+FROM dbo.Ordenes;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[OrdenID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[OrdenID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[OrdenID]" name="OrdenID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[ClienteCodigo]" length="10" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[ClienteCodigo]" name="ClienteCodigo" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[EmpleadoID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[EmpleadoID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[EmpleadoID]" name="EmpleadoID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[TransportistaID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[TransportistaID]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[TransportistaID]" name="TransportistaID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaOrden]" dataType="dbDate" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[FechaOrden]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaOrden]" name="FechaOrden" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaEnvio]" dataType="dbDate" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[FechaEnvio]" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].Columns[FechaEnvio]" name="FechaEnvio" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[OrdenID]" dataType="i4" name="OrdenID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[ClienteCodigo]" codePage="1252" dataType="str" length="10" name="ClienteCodigo" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[EmpleadoID]" dataType="i4" name="EmpleadoID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[TransportistaID]" dataType="i4" name="TransportistaID" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[FechaOrden]" dataType="dbDate" name="FechaOrden" />
+                    <externalMetadataColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output].ExternalColumns[FechaEnvio]" dataType="dbDate" name="FechaEnvio" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[OrdenID]" dataType="i4" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[OrdenID]" name="OrdenID" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ClienteCodigo]" codePage="1252" dataType="str" length="10" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ClienteCodigo]" name="ClienteCodigo" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[EmpleadoID]" dataType="i4" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[EmpleadoID]" name="EmpleadoID" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[TransportistaID]" dataType="i4" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[TransportistaID]" name="TransportistaID" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[FechaOrden]" dataType="dbDate" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[FechaOrden]" name="FechaOrden" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[FechaEnvio]" dataType="dbDate" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[FechaEnvio]" name="FechaEnvio" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\06_DFT_ORDEN.Paths[OLE DB Source Output]" endId="Package\06_DFT_ORDEN\DST_ST_ORDEN.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\06_DFT_ORDEN\SRC_ST_ORDEN.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\07_DFT_DETALLE" DTS:CreationName="Microsoft.Pipeline" DTS:Description="KentFoods.DetalleOrden -&gt; ST_DETALLE (descuento real a decimal(5,2), precio money a decimal)" DTS:DTSID="{09DD36DD-0FBE-414F-BC60-57CDBC1559B2}" DTS:ExecutableType="Microsoft.Pipeline" DTS:LocaleID="-1" DTS:ObjectName="07_DFT_DETALLE" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\07_DFT_DETALLE\DST_ST_DETALLE" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="DST_ST_DETALLE" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ST_DETALLE]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_STAGE]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_STAGE]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].Columns[OrdenID]" cachedDataType="i4" cachedName="OrdenID" externalMetadataColumnId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[OrdenID]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[OrdenID]" />
+                    <inputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].Columns[ProductoID]" cachedDataType="i4" cachedName="ProductoID" externalMetadataColumnId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[ProductoID]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[ProductoID]" />
+                    <inputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].Columns[PrecioUnitario]" cachedDataType="numeric" cachedName="PrecioUnitario" cachedPrecision="18" cachedScale="2" externalMetadataColumnId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[PrecioUnitario]" />
+                    <inputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].Columns[Cantidad]" cachedDataType="i4" cachedName="Cantidad" externalMetadataColumnId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Cantidad]" />
+                    <inputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].Columns[Descuento]" cachedDataType="numeric" cachedName="Descuento" cachedPrecision="5" cachedScale="2" externalMetadataColumnId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[Descuento]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Descuento]" />
+                  </inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[OrdenID]" dataType="i4" name="OrdenID" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[ProductoID]" dataType="i4" name="ProductoID" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]" dataType="numeric" name="PrecioUnitario" precision="18" scale="2" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]" dataType="i4" name="Cantidad" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input].ExternalColumns[Descuento]" dataType="numeric" name="Descuento" precision="5" scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE" componentClassID="Microsoft.OLEDBSource" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" description="OLE DB Source" name="SRC_ST_DETALLE" usesDispositions="true" version="7">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">
+                </property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(OrdenID AS int)                          AS OrdenID,
+       CAST(ProductoID AS int)                       AS ProductoID,
+       CAST(PrecioUnitario AS decimal(18,2))         AS PrecioUnitario,
+       CAST(Cantidad AS int)                         AS Cantidad,
+       CAST(ROUND(Descuento, 2) AS decimal(5,2))     AS Descuento
+FROM dbo.DetalleOrden;</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping">
+                </property>
+              </properties>
+              <connections>
+                <connection refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[KentFoods_OLTP]" connectionManagerRefId="Package.ConnectionManagers[KentFoods_OLTP]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output]" name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[OrdenID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[OrdenID]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[OrdenID]" name="OrdenID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[ProductoID]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[ProductoID]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[ProductoID]" name="ProductoID" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[PrecioUnitario]" dataType="numeric" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[PrecioUnitario]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[PrecioUnitario]" name="PrecioUnitario" precision="18" scale="2" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Cantidad]" dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[Cantidad]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Cantidad]" name="Cantidad" truncationRowDisposition="FailComponent" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Descuento]" dataType="numeric" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[Descuento]" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].Columns[Descuento]" name="Descuento" precision="5" scale="2" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[OrdenID]" dataType="i4" name="OrdenID" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[ProductoID]" dataType="i4" name="ProductoID" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[PrecioUnitario]" dataType="numeric" name="PrecioUnitario" precision="18" scale="2" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[Cantidad]" dataType="i4" name="Cantidad" />
+                    <externalMetadataColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output].ExternalColumns[Descuento]" dataType="numeric" name="Descuento" precision="5" scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output]" isErrorOut="true" name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[OrdenID]" dataType="i4" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[OrdenID]" name="OrdenID" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ProductoID]" dataType="i4" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ProductoID]" name="ProductoID" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[PrecioUnitario]" dataType="numeric" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[PrecioUnitario]" name="PrecioUnitario" precision="18" scale="2" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[Cantidad]" dataType="i4" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[Cantidad]" name="Cantidad" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[Descuento]" dataType="numeric" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[Descuento]" name="Descuento" precision="5" scale="2" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1" />
+                    <outputColumn refId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\07_DFT_DETALLE.Paths[OLE DB Source Output]" endId="Package\07_DFT_DETALLE\DST_ST_DETALLE.Inputs[OLE DB Destination Input]" name="OLE DB Source Output" startId="Package\07_DFT_DETALLE\SRC_ST_DETALLE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\08_SQL_Control_STAGE" DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:Description="Ejecuta SP_CONTROL_STAGE: compara conteos, unidades y venta total Origen vs Stage y registra la carga en LOG_CARGA" DTS:DTSID="{0A812293-9168-4D90-A743-70FDF48DCBE3}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:LocaleID="-1" DTS:ObjectName="08_SQL_Control_STAGE" DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData SQLTask:Connection="{109BE39F-034F-4BB2-94F6-74C25F9358F1}" SQLTask:SqlStatementSource="EXEC dbo.SP_CONTROL_STAGE;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{09F867EE-7605-48DE-9A6E-DFF208DA2EB2\}]" DTS:CreationName="" DTS:DTSID="{09F867EE-7605-48DE-9A6E-DFF208DA2EB2}" DTS:From="Package\06_DFT_ORDEN" DTS:LogicalAnd="True" DTS:ObjectName="{09F867EE-7605-48DE-9A6E-DFF208DA2EB2}" DTS:To="Package\07_DFT_DETALLE" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{1B50BB92-D390-419F-9E8B-D068E2778DA5\}]" DTS:CreationName="" DTS:DTSID="{1B50BB92-D390-419F-9E8B-D068E2778DA5}" DTS:From="Package\04_DFT_PRODUCTO" DTS:LogicalAnd="True" DTS:ObjectName="{1B50BB92-D390-419F-9E8B-D068E2778DA5}" DTS:To="Package\05_DFT_EMPLEADO" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{2727DD52-B8ED-49DF-8E9B-0BFA021D6140\}]" DTS:CreationName="" DTS:DTSID="{2727DD52-B8ED-49DF-8E9B-0BFA021D6140}" DTS:From="Package\00_Limpiar_STAGE" DTS:LogicalAnd="True" DTS:ObjectName="{2727DD52-B8ED-49DF-8E9B-0BFA021D6140}" DTS:To="Package\01_DFT_CLIENTE" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{41A5A1A8-681D-4F78-989C-A77C9668F994\}]" DTS:CreationName="" DTS:DTSID="{41A5A1A8-681D-4F78-989C-A77C9668F994}" DTS:From="Package\07_DFT_DETALLE" DTS:LogicalAnd="True" DTS:ObjectName="{41A5A1A8-681D-4F78-989C-A77C9668F994}" DTS:To="Package\08_SQL_Control_STAGE" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{4F63EC5D-8C5F-4843-BC20-E1760DE3D078\}]" DTS:CreationName="" DTS:DTSID="{4F63EC5D-8C5F-4843-BC20-E1760DE3D078}" DTS:From="Package\03_DFT_TRANSPORTISTA" DTS:LogicalAnd="True" DTS:ObjectName="{4F63EC5D-8C5F-4843-BC20-E1760DE3D078}" DTS:To="Package\04_DFT_PRODUCTO" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{4FE9A25D-5BF3-4C12-8029-EE0A20EB41E7\}]" DTS:CreationName="" DTS:DTSID="{4FE9A25D-5BF3-4C12-8029-EE0A20EB41E7}" DTS:From="Package\05_DFT_EMPLEADO" DTS:LogicalAnd="True" DTS:ObjectName="{4FE9A25D-5BF3-4C12-8029-EE0A20EB41E7}" DTS:To="Package\06_DFT_ORDEN" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{B0441A46-D33C-4BF5-95B5-B514EB7A90E1\}]" DTS:CreationName="" DTS:DTSID="{B0441A46-D33C-4BF5-95B5-B514EB7A90E1}" DTS:From="Package\01_DFT_CLIENTE" DTS:LogicalAnd="True" DTS:ObjectName="{B0441A46-D33C-4BF5-95B5-B514EB7A90E1}" DTS:To="Package\02_DFT_PROVEEDOR" />
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[{CC8C1C92-EE49-4DF4-A73D-4C22BA08BFC3\}]" DTS:CreationName="" DTS:DTSID="{CC8C1C92-EE49-4DF4-A73D-4C22BA08BFC3}" DTS:From="Package\02_DFT_PROVEEDOR" DTS:LogicalAnd="True" DTS:ObjectName="{CC8C1C92-EE49-4DF4-A73D-4C22BA08BFC3}" DTS:To="Package\03_DFT_TRANSPORTISTA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?><Objects Version="8"><Package design-time-name="Package"><LayoutInfo><GraphLayout Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph"><NodeLayout Size="290,42.6666666667" Id="Package\00_Limpiar_STAGE" TopLeft="30,30" /><NodeLayout Size="290,42.6666666667" Id="Package\01_DFT_CLIENTE" TopLeft="370,30" /><NodeLayout Size="290,42.6666666667" Id="Package\02_DFT_PROVEEDOR" TopLeft="30,108" /><NodeLayout Size="290,42.6666666667" Id="Package\03_DFT_TRANSPORTISTA" TopLeft="370,108" /><NodeLayout Size="290,42.6666666667" Id="Package\04_DFT_PRODUCTO" TopLeft="30,186" /><NodeLayout Size="290,42.6666666667" Id="Package\05_DFT_EMPLEADO" TopLeft="370,186" /><NodeLayout Size="290,42.6666666667" Id="Package\06_DFT_ORDEN" TopLeft="30,264" /><NodeLayout Size="290,42.6666666667" Id="Package\07_DFT_DETALLE" TopLeft="370,264" /><NodeLayout Size="290,42.6666666667" Id="Package\08_SQL_Control_STAGE" TopLeft="30,342" /></GraphLayout></LayoutInfo></Package></Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

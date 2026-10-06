@@ -1,0 +1,2 @@
+Los archivos XML generados por los Data Profiling Task se guardan en esta carpeta.
+Se abren con Data Profile Viewer (DataProfileViewer.exe).

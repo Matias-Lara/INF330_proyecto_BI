@@ -1,0 +1,153 @@
+﻿=== V1. Conteo de filas: Origen vs Stage vs DW ===
+entidad|origen|stage|dw
+-------|------|-----|--
+Clientes / ST_CLIENTE / Dim_Cliente|91|91|91
+Proveedores / ST_PROVEEDOR / Dim_Proveedor|29|29|29
+Transportistas / ST_TRANSPORTISTA / Dim_Transportista|3|3|3
+Productos / ST_PRODUCTO / Dim_Producto|77|77|77
+Empleados / ST_EMPLEADO / Dim_Empleado|9|9|9
+Ordenes / ST_ORDEN / (fechas en Dim_Tiempo)|830|830|NULL
+DetalleOrden / ST_DETALLE / Fact_Ventas|2155|2155|2155
+Dim_Tiempo (calendario 2016-2018)|NULL|NULL|1096
+=== V2. Venta neta total: Origen vs Stage vs DW (debe cuadrar con $1.265.793) ===
+venta_origen|venta_stage|venta_dw|diferencia_dw_vs_origen
+------------|-----------|--------|-----------------------
+1265793.04|1265793.04|1265793.29|.25
+=== V3. Unidades vendidas: Origen vs DW ===
+unidades_origen|unidades_dw
+---------------|-----------
+51317|51317
+Changed database context to 'KentFoods_DW'.
+=== V4. Integridad referencial del DW: hechos sin dimension (debe ser 0 en todas) ===
+fk|huerfanos
+--|---------
+id_fecha_orden|0
+id_fecha_envio (no nulos)|0
+id_cliente|0
+id_transportista|0
+id_empleado|0
+id_proveedor|0
+id_producto|0
+=== V5. Regla de los envios sin fecha (21 ordenes / 73 lineas en el origen) ===
+lineas_sin_fecha_envio|ordenes_sin_fecha_envio|lineas_con_dias_envio_nulo
+----------------------|-----------------------|--------------------------
+73|21|73
+=== V6. Dim_Tiempo ===
+dias|desde|hasta|anios|claves_inconsistentes
+----|-----|-----|-----|---------------------
+1096|2016-01-01|2018-12-31|3|0
+=== V7. Dim_Cliente: clave sustituta vs clave de negocio ===
+ClienteID|ClienteCodigo|NombreEmpresa|Ciudad|Pais
+---------|-------------|-------------|------|----
+1|ALFKI|Alfreds Futterkiste|Berlin|Germany
+2|ANATR|Ana Trujillo Emparedados y helados|México D.F.|Mexico
+3|ANTON|Antonio Moreno Taquería|México D.F.|Mexico
+4|AROUT|Around the Horn|London|UK
+5|BERGS|Berglunds snabbköp|Luleå|Sweden
+filas|codigos_unicos|id_min|id_max
+-----|--------------|------|------
+91|91|1|91
+=== V8. Dim_Empleado (un territorio por empleado: menor TerritorioID; la region es confiable) ===
+EmpleadoID|NombreEmpleado|Territorio|Region
+----------|--------------|----------|------
+1|Nancy Davolio|Wilton|Eastern
+2|Andrew Fuller|Westboro|Eastern
+3|Janet Leverling|Atlanta|Southern
+4|Margaret Peacock|Rockville|Eastern
+5|Steven Buchanan|Providence|Eastern
+6|Michael Suyama|Phoenix|Western
+7|Robert King|Hoffman Estates|Western
+8|Laura Callahan|Philadelphia|Northern
+9|Anne Dodsworth|Hollis|Northern
+=== V9. Medidas: descuento redondeado y monto_neto ===
+desc_min|desc_max|monto_mal_calculado|montos_negativos
+--------|--------|-------------------|----------------
+.00|.25|0|0
+=== V10. Textos del DW sin relleno de espacios (debe ser 0) ===
+campo|con_espacios
+-----|------------
+Dim_Empleado.Region|0
+Dim_Empleado.Territorio|0
+Dim_Cliente.ClienteCodigo|0
+=== K1. KPI 1 - Tiempo promedio de envio por transportista (dias); DW vs Origen ===
+Transportista|ordenes_enviadas|prom_dias_dw|prom_dias_origen
+-------------|----------------|------------|----------------
+Federal Shipping|249|7.47|7.47
+Speedy Express|245|8.57|8.57
+United Package|315|9.23|9.23
+=== K2. KPI 2 - Ventas y variacion % por region y anio (sin duplicacion: Region viene de Dim_Empleado) ===
+Region|Anio|ventas|variacion_pct
+------|----|------|-------------
+Eastern|2016|125850.62|NULL
+Eastern|2017|323118.59|156.75
+Eastern|2018|211359.42|-34.59
+Northern|2016|32134.64|NULL
+Northern|2017|82343.02|156.24
+Northern|2018|89692.73|8.93
+Southern|2016|18223.96|NULL
+Southern|2017|108026.17|492.77
+Southern|2018|76562.75|-29.13
+Western|2016|31874.77|NULL
+Western|2017|103597.57|225.01
+Western|2018|63009.05|-39.18
+suma_de_las_regiones
+--------------------
+1265793.29
+=== K3. KPI 3 - Ventas totales por proveedor (top 5) y control ===
+Proveedor|ventas
+---------|------
+Aux joyeux ecclésiastiques|153691.28
+Plutzer Lebensmittelgroßmärkte AG|145372.44
+Gai pâturage|117981.18
+Pavlova, Ltd.|106459.83
+G'day, Mate|65626.77
+proveedores_con_ventas|suma_proveedores
+----------------------|----------------
+29|1265793.29
+=== K4. KPI 4 - Promedio de unidades por pedido, por cliente (top 5) ===
+ClienteCodigo|NombreEmpresa|pedidos|unidades|unidades_por_pedido
+-------------|-------------|-------|--------|-------------------
+SAVEA|Save-a-lot Markets|31|4958|159.94
+ERNSH|Ernst Handel|30|4543|151.43
+QUICK|QUICK-Stop|28|3961|141.46
+FRANK|Frankenversand|15|1525|101.67
+SEVES|Seven Seas Imports|9|818|90.89
+=== K5. KPI 5 - % de la venta total por categoria ===
+NombreCategoria|ventas|pct_venta
+---------------|------|---------
+Beverages|267868.20|21.16
+Dairy Products|234507.32|18.53
+Confections|167357.29|13.22
+Meat/Poultry|163022.38|12.88
+Seafood|131261.77|10.37
+Condiments|106047.15|8.38
+Produce|99984.58|7.90
+Grains/Cereals|95744.60|7.56
+=== K6. Control cruzado KPI 5: ventas por categoria DW vs Origen (diferencia maxima en $) ===
+diferencia_maxima_por_categoria
+-------------------------------
+6.5168418892426416E-2
+=== L1. Bitacora de cargas (LOG_CARGA, ultima ejecucion de cada paquete) ===
+Paquete|Tabla|Filas|Fecha
+-------|-----|-----|-----
+01_ETL_KentFoods_OLTP_Stage|ST_CLIENTE|91|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_PROVEEDOR|29|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_TRANSPORTISTA|3|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_PRODUCTO|77|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_EMPLEADO|9|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_ORDEN|830|2026-10-06 14:13:00.567
+01_ETL_KentFoods_OLTP_Stage|ST_DETALLE|2155|2026-10-06 14:13:00.567
+02_ETL_KentFoods_Stage_DW|Dim_Tiempo|1096|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Transportista|3|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Proveedor|29|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Producto|77|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Cliente|91|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Empleado|9|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Fact_Ventas|2155|2026-10-06 14:13:02.213
+02_ETL_KentFoods_Stage_DW|Dim_Tiempo|1096|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Dim_Transportista|3|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Dim_Proveedor|29|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Dim_Producto|77|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Dim_Cliente|91|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Dim_Empleado|9|2026-10-06 14:13:02.367
+02_ETL_KentFoods_Stage_DW|Fact_Ventas|2155|2026-10-06 14:13:02.367

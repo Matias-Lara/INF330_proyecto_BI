@@ -1,0 +1,303 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2026 12:00:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCAL"
+  DTS:CreatorName="Grupo 7"
+  DTS:DTSID="{7675C5A5-977B-452D-9CC9-F6BD767264F6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1034"
+  DTS:ObjectName="03_Perfil_Productos"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{AF6DDC26-36CE-4B46-A7F5-0EABAE792F06}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[KentFoods]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8436CE82-2292-43EB-9764-68C424E134BA}"
+      DTS:ObjectName="KentFoods">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods;Integrated Security=True;TrustServerCertificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PRODUCTOS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4786FA2F-CDFE-42A9-93DD-0E37AC74A25D}"
+      DTS:ObjectName="PRODUCTOS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\PRODUCTOS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CATEGORIAS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{021D961D-C8DE-4919-A129-2AB15BD0A03B}"
+      DTS:ObjectName="CATEGORIAS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\CATEGORIAS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROVEEDORES_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{BD7DE2D3-4B66-4A09-9603-C6F98FFE3AFB}"
+      DTS:ObjectName="PROVEEDORES_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\PROVEEDORES_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Perfil PRODUCTOS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Productos"
+      DTS:DTSID="{7DC33ECC-182B-4DFF-BEF7-60A87BB2B009}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil PRODUCTOS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="PRODUCTOS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Productos" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Perfil CATEGORIAS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Categorias"
+      DTS:DTSID="{C13C9C57-EC61-4CFD-ABC0-CE51BDB6EBFF}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil CATEGORIAS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="CATEGORIAS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Categorias" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Perfil PROVEEDORES"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Proveedores"
+      DTS:DTSID="{C34A5E3E-F40E-442E-9D9D-65114B14C1BA}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil PROVEEDORES"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="PROVEEDORES_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?><Objects Version="8"><Package design-time-name="Package"><LayoutInfo><GraphLayout Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph"><NodeLayout Size="200,42.6666666667" Id="Package\Perfil PRODUCTOS" TopLeft="30,30" /><NodeLayout Size="200,42.6666666667" Id="Package\Perfil CATEGORIAS" TopLeft="290,30" /><NodeLayout Size="200,42.6666666667" Id="Package\Perfil PROVEEDORES" TopLeft="30,108" /></GraphLayout></LayoutInfo></Package></Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2026 12:00:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCAL"
+  DTS:CreatorName="Grupo 7"
+  DTS:DTSID="{4F13A533-C1A6-4DA6-B498-4C7D263C3AF7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1034"
+  DTS:ObjectName="05_Perfil_Transportistas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{6C9E8E5F-150A-4EE4-BC45-F1CD81E8BA48}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[KentFoods]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BE33932B-113F-428A-9148-4D29BB3C5079}"
+      DTS:ObjectName="KentFoods">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=KentFoods;Integrated Security=True;TrustServerCertificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TRANSPORTISTAS_Profile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B9FDB507-10E8-490D-BD3F-B93042D353CD}"
+      DTS:ObjectName="TRANSPORTISTAS_Profile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\activ\Desktop\U\2026-2\INF330_proyecto_BI\avance2\ssis\KentFoods_Profiler\Resultados\TRANSPORTISTAS_Profile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Perfil TRANSPORTISTAS"
+      DTS:CreationName="Microsoft.DataProfilingTask"
+      DTS:Description="Perfilamiento de dbo.Transportistas"
+      DTS:DTSID="{82AE386E-F03C-45D8-A786-03E629ED3236}"
+      DTS:ExecutableType="Microsoft.DataProfilingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Perfil TRANSPORTISTAS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DataProfilingTaskData
+          Destination="TRANSPORTISTAS_Profile.xml"
+          OverwriteDestination="True">
+          <ProfileInput>
+<![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources />
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{BE33932B-113F-428A-9148-4D29BB3C5079}</DataSourceID>
+        <Table Schema="dbo" Table="Transportistas" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>]]>
+</ProfileInput>
+        </DataProfilingTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?><Objects Version="8"><Package design-time-name="Package"><LayoutInfo><GraphLayout Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph"><NodeLayout Size="200,42.6666666667" Id="Package\Perfil TRANSPORTISTAS" TopLeft="30,30" /></GraphLayout></LayoutInfo></Package></Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

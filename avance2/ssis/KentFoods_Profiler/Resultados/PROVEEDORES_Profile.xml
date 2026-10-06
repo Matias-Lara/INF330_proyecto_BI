@@ -1,0 +1,1681 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{021D961D-C8DE-4919-A129-2AB15BD0A03B}" Name="CATEGORIAS_Profile.xml">
+      <DtsConnectionManagerID>CATEGORIAS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{8436CE82-2292-43EB-9764-68C424E134BA}" Name="KentFoods">
+      <DtsConnectionManagerID>KentFoods</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{4786FA2F-CDFE-42A9-93DD-0E37AC74A25D}" Name="PRODUCTOS_Profile.xml">
+      <DtsConnectionManagerID>PRODUCTOS_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{BD7DE2D3-4B66-4A09-9603-C6F98FFE3AFB}" Name="PROVEEDORES_Profile.xml">
+      <DtsConnectionManagerID>PROVEEDORES_Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>20</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table Schema="dbo" Table="Proveedores" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="-1" />
+        <Column Name="ProveedorID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="-1" />
+        <Column Name="Proveedor" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="-1" />
+        <KeyColumns>
+          <Column Name="ProveedorID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="ProveedorID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>29</MaxValue>
+        <Mean>15</Mean>
+        <StdDev>8.36660026534076</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Proveedor" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>38</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>10</MinLength>
+        <MaxLength>26</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>28</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>12</MinLength>
+        <MaxLength>45</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>45</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>13</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>2</MinLength>
+        <MaxLength>11</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>15</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="ProveedorID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>4</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>5</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>6</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>7</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>8</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>9</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>11</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>13</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>14</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>15</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>16</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>17</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>18</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>19</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>20</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>21</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>22</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>23</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>24</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>25</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>26</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>27</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>28</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>29</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <KeyColumns>
+          <Column Name="Proveedor" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Proveedor" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Aux joyeux ecclésiastiques</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bigfoot Breweries</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cooperativa de Quesos 'Las Cabras'</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Escargots Nouveaux</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Exotic Liquids</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Forêts d'érables</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Formaggi Fortini s.r.l.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Gai pâturage</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>G'day, Mate</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Grandma Kelly's Homestead</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Heli Süßwaren GmbH &amp; Co. KG</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Karkki Oy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Leka Trading</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lyngbysild</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ma Maison</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mayumi's</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>New England Seafood Cannery</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>New Orleans Cajun Delights</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nord-Ost-Fisch Handelsgesellschaft mbH</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Norske Meierier</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pasta Buttini s.r.l.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pavlova, Ltd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PB Knäckebröd AB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Plutzer Lebensmittelgroßmärkte AG</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Refrescos Americanas LTDA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Specialty Biscuits, Ltd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Svensk Sjöföda AB</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tokyo Traders</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Zaanse Snoepfabriek</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <KeyColumns>
+          <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Anne Heikkonen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Antonio del Valle Saavedra</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Beate Vileid</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Carlos Diaz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chandra Leka</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chantal Goulet</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Charlotte Cooper</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cheryl Saylor</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Dirk Luchte</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Eliane Noz</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Elio Rossi</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Giovanni Giudici</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Guylène Nodier</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ian Devling</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jean-Guy Lauzon</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lars Peterson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marie Delamare</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Martin Bein</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mayumi Ohno</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Michael Björn</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Niels Petersen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Peter Wilson</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Petra Winkler</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Regina Murphy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Robb Merchant</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Shelley Burke</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sven Petersen</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wendy Mackenzie</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Yoshi Nagase</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>15</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Accounting Manager</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Coordinator Foreign Markets</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Export Administrator</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>International Marketing Mgr.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marketing Manager</Value>
+            <Count>5</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marketing Representative</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Order Administrator</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Owner</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Product Manager</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Purchasing Manager</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Regional Account Rep.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Agent</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Manager</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sales Representative</Value>
+            <Count>6</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Wholesale Account Agent</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <KeyColumns>
+          <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>148 rue Chasseur</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>170 Prince Edward Parade Hunter's Hill</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>203, Rue des Francs-Bourgeois</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>22, rue H. Voiron</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>29 King's Way</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2960 Rue St. Laurent</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>3400 - 8th Avenue Suite 210</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>471 Serangoon Loop, Suite #402</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>49 Gilbert St.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>707 Oxford Rd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>74 Rose St. Moonie Ponds</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>92 Setsuko Chuo-ku</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>9-8 Sekimai Musashino-shi</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Av. das Americanas 12.890</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bat. B 3, rue des Alpes</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bogenallee 51</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Brovallavägen 231</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Calle del Rosal 4</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Frahmredder 112a</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Hatlevegen 5</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Kaloadagatan 13</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lyngbysild Fiskebakken 10</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Order Processing Dept. 2100 Paul Revere Blvd.</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>P.O. Box 78934</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tiergartenstraße 5</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Valtakatu 12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Verkoop Rijnweg 22</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Via dei Gelsomini, 153</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Viale Dante, 75</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <KeyColumns>
+          <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Ann Arbor</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Annecy</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bend</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Berlin</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Boston</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cuxhaven</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Frankfurt</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Göteborg</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lappeenranta</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>London</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lyngby</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Manchester</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Melbourne</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Montceau</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Montréal</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>New Orleans</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Osaka</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Oviedo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Paris</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ravenna</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Salerno</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sandvika</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sao Paulo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Singapore</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ste-Hyacinthe</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Stockholm</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sydney</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tokyo</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Zaandam</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>16</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Australia</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Brazil</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Canada</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Denmark</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Finland</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>France</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Germany</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Italy</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Japan</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Netherlands</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Norway</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Singapore</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Spain</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sweden</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>UK</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>USA</Value>
+            <Count>4</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <KeyColumns>
+          <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>29</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>(0)2-953010</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(010) 9984510</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(02) 555-5914</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(03) 3555-5011</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(03) 444-2343</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(04721) 8713</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(0544) 60323</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(06) 431-7877</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(069) 992755</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(089) 6547665</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(1) 03.83.00.68</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(100) 555-4822</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(11) 555 4640</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(12345) 1212</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(161) 555-4448</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(171) 555-2222</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(313) 555-5735</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(503) 555-9931</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(514) 555-2955</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(514) 555-9022</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(617) 555-3267</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(953) 10956</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>(98) 598 76 54</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>031-987 65 43</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>08-123 45 67</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>38.76.98.06</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>43844108</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>555-8787</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>85.57.00.07</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Proveedor" SqlDbType="NVarChar" MaxLength="40" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>34</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ S\.R\.L\.</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+'(\p{L}+ )+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>24</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Contacto" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>93</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Cargo" SqlDbType="NVarChar" MaxLength="30" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SALES REPRESENTATIVE</RegexText>
+            <Frequency>21</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ MANAGER</RegexText>
+            <Frequency>45</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ ADMINISTRATOR</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ REPRESENTATIVE</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+AGENT</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}\p{L}\p{L}\.</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \p{L}+</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Direccion" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \d+</RegexText>
+            <Frequency>21</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+ \d+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+\d+</RegexText>
+            <Frequency>3</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ \p{L}+ \p{L}\p{L}\.</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>(\p{L}+ )+\p{L}+, \d+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d+ \p{L}+ ST\. (\p{L}+ )+</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>48</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Ciudad" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>86</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+ \p{L}+</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Pais" SqlDbType="NVarChar" MaxLength="15" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>GERMANY</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>FRANCE</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>AUSTRALIA</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>USA</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>CANADA</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SWEDEN</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>JAPAN</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>ITALY</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UK</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>24</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{8436CE82-2292-43EB-9764-68C424E134BA}</DataSourceID>
+        <Table DataSource="." Database="KentFoods" Schema="dbo" Table="Proveedores" RowCount="29" />
+        <Column Name="Telefono" SqlDbType="NVarChar" MaxLength="24" Precision="255" Scale="255" LCID="3082" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\d\) 555-\d\d\d\d</RegexText>
+            <Frequency>28</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\d\) \d+</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\d\d\d\) \d\d\d\d</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\(\d\d\) \d\d\d-\d\d\d\d</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\d\d\.\d\d\.\d\d\.\d\d</RegexText>
+            <Frequency>7</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>.*</RegexText>
+            <Frequency>34</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
