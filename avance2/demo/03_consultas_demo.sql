@@ -1,5 +1,5 @@
 -- ============================================================
--- DEMO · 03_consultas_demo.sql  |  Consultas para mostrar en SSMS durante la presentación
+-- DEMO · 03_consultas_demo.sql
 -- Ejecutar por bloques (seleccionar y F5).
 -- ============================================================
 
