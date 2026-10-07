@@ -15,7 +15,7 @@
 | Guion de demo y preguntas probables | ✅ `demo\guion_demo.md` |
 | Diapositivas | ⬜ Pendiente (estructura sugerida en el guion) |
 | Capturas de pantalla (9 figuras) | ⬜ **Las debe tomar el equipo** en Visual Studio/SSMS (lista en `informe\NOTAS_para_el_equipo.md`) |
-| Verificación en Visual Studio por una persona (abrir `.sln`, F5 en cada paquete) | ⬜ Pendiente (se verificó compilación con `devenv /Build` y ejecución con `dtexec`) |
+| Verificación en Visual Studio por una persona (abrir `.sln`, ▶ en cada paquete) | ✅ 06-10-2026 en el notebook, con la copia con destino SQL Server 2022 (ver "Ejecutar en Visual Studio"). Con el destino 2019 del repo, ▶ falla en este PC |
 
 ## Cómo ejecutar
 ```powershell
@@ -26,6 +26,15 @@ powershell -ExecutionPolicy Bypass -File avance2\ejecutar_etl.ps1
 # o abrir en Visual Studio 2019:  avance2\ssis\KentFoods_ETL_SSIS.sln   (paquetes 01 y 02)
 #                                 avance2\ssis\KentFoods_Profiler.sln  (perfilamiento)
 ```
+### Ejecutar en Visual Studio (▶ Iniciar)
+- **Síntoma:** con el proyecto del repo (destino SQL Server 2019) aparece *"Failed to start project … No se puede convertir el objeto COM … IDTSApplication160 … Interfaz no compatible (E_NOINTERFACE)"* al apretar ▶. Los paquetes abren y compilan, y se ejecutan bien con `dtexec`.
+- **Contexto:** extensión *Integration Services Projects* 4.0 (instalador de la guía del profesor) y SQL Server 2019 sin actualizaciones (15.0.2000.5). Un proyecto vacío nuevo (destino 2022) ejecuta sin problema; el mismo proyecto con destino 2019 no.
+- **Solución aplicada:** una copia de `avance2\ssis` con `TargetServerVersion` = SQL Server 2022 (propiedades del proyecto → General). Resultado: paquete 01 y 02 en verde, `SP_CONTROL_DW` con 17 controles en OK, y la segunda ejecución del 02 con 0 filas en `13_DFT_Fact_Ventas_Nuevas`. Copia en uso: `C:\Users\activ\Desktop\ETL_KentFoods\KentFoods_ETL_SSIS.sln` (fuera del repo).
+- **Se deja el repo en 2019** para que el Plan B (`ejecutar_etl.ps1`, `dtexec` de SQL Server 2019) siga funcionando.
+- **Alternativa sin probar:** desinstalar la extensión 4.0 e instalar la 3.16 (Microsoft Q&A) para ejecutar con destino 2019.
+- Visual Studio reescribe `avance2\ssis\KentFoods_ETL_SSIS.sln` al abrirlo (cambia el GUID del tipo de proyecto): no commitear ese cambio.
+- El aviso *"Could not open global shared memory to communicate with performance DLL"* se evita abriendo Visual Studio como administrador.
+
 ### Levantar todo en otro PC (o en otra sesión de Claude)
 1. Requisitos: SQL Server 2019 como instancia por defecto (servidor `.`), Integration Services y `sqlcmd`; Visual Studio 2019 + extensión *Integration Services Projects* solo si se quieren abrir los paquetes (ejecutarlos por consola no lo necesita). Manual de instalación en `material_curso\`.
 2. `git clone` del repo (trae `bd\*.bak`, los scripts, los paquetes y los respaldos).
@@ -57,5 +66,5 @@ Resultado esperado: 2.155 líneas de hechos, 91 clientes, 29 proveedores, 3 tran
 - Confirmar que la retroalimentación del Avance 1 citada en el borrador (KPI 1 despacho vs entrega; preguntas de negocio omitidas) es la real y no hay más.
 - Tomar las 9 capturas, pegar el texto en el Doc, y completar la Historia de cambios.
 - Armar las diapositivas y ensayar la demo (cronometrar 10 min).
-- Que alguien del equipo abra la solución en Visual Studio 2019 y ejecute cada paquete con F5 antes del miércoles (idealmente como administrador, para evitar el aviso de contadores de rendimiento).
+- Antes de la demo: dejar las bases vacías con `preparar_entorno.ps1 -RecrearDW` y abrir en Visual Studio (como administrador) la copia con destino 2022 (ver "Ejecutar en Visual Studio"), no la solución del repo.
 - El respaldo y los scripts asumen SQL Server local por defecto (`Data Source=.`). Si otro integrante usa otra instancia, hay que cambiar las conexiones.
