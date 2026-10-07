@@ -1,6 +1,5 @@
 -- ============================================================
 -- DEMO · 03_consultas_demo.sql
--- Ejecutar por bloques (seleccionar y F5).
 -- ============================================================
 
 -- A) Estado de las tres bases (antes de ejecutar la ETL: Stage y DW vacíos)
