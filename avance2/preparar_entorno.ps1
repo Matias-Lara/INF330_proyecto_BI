@@ -62,6 +62,8 @@ function Restore-Bak([string]$dbName, [string]$bak, [bool]$forzar = $false) {
         "MOVE '$($_.Logical)' TO '$rutaDatos$dbName$(if ($_.Type -eq 'L') { '_log' })$ext'"
     }) -join ', '
     [void](Invoke-Sql "RESTORE DATABASE [$dbName] FROM DISK='$bak' WITH $move, REPLACE")
+    # el .bak trae como dueno a un usuario de otro equipo; con sa se pueden crear diagramas en SSMS
+    [void](Invoke-Sql "ALTER AUTHORIZATION ON DATABASE::[$dbName] TO sa")
     Write-Host "[ok] $dbName restaurada"
 }
 
