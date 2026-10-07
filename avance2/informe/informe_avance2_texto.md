@@ -84,7 +84,7 @@ El paquete `01_ETL_KentFoods_OLTP_Stage` implementa una carga completa (Truncate
 
 [Figura 2. Control Flow del paquete `01_ETL_KentFoods_OLTP_Stage` ejecutado con éxito (todas las tareas en verde)]
 
-[Figura 3. Data Flow de `01_DFT_DETALLE`: OLE DB Source con la consulta de transformación y OLE DB Destination hacia `ST_DETALLE`]
+[Figura 3. Data Flow de `07_DFT_DETALLE`: OLE DB Source con la consulta de transformación y OLE DB Destination hacia `ST_DETALLE`]
 
 **Validación de la carga a Stage.** Tras ejecutar el paquete se comparó el origen con el Stage mediante `SP_CONTROL_STAGE`. Los conteos coinciden en todas las tablas, las unidades vendidas son idénticas y la venta neta calculada en el Stage coincide con la del origen ($1.265.793,04).
 
@@ -184,7 +184,7 @@ Tras ejecutar el paquete se ejecutó `SP_CONTROL_DW`, que compara el Stage con e
 | Ciudad del cliente modificado | Berlin | Berlin TEST | Atributo actualizado |
 | Venta neta | 1.265.793,29 | 1.266.050,29 | +257,00 |
 
-[Figura 8. Segunda ejecución del paquete 02 sin cambios en el origen (0 filas nuevas en el Data Flow de hechos)]
+[Figura 8. Segunda ejecución del paquete 02 sin cambios en el origen: el registro de ejecución indica que `DST_Fact_Ventas` escribió 0 filas]
 
 **Consultas sobre los KPI.** Para comprobar que el modelo cargado permite responder las preguntas de negocio se calcularon los cinco KPI directamente sobre el Data Warehouse. Los resultados de los KPI 1 y 5 coinciden con los obtenidos directamente desde el origen (en el KPI 5, con diferencias por redondeo menores a $0,07 por categoría).
 
